@@ -147,3 +147,14 @@ Each expense is linked to its respective user.
 ---
 
 Built as a full-stack development project to explore frontend development, backend architecture, database integration, authentication, and deployment.
+
+## Screenshots
+
+### Dashboard
+![Dashboard](screenshots/dashboard.png)
+
+### Transactions
+![Transactions](screenshots/transactions.png)
+
+### Analytics
+![Analytics](screenshots/analytics.png)
