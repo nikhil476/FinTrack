@@ -140,4 +140,10 @@ Each expense is linked to its respective user.
 
 ## 👨‍💻 Author
 
-**Nikh
+**Nikhil Bhagat**
+
+[GitHub](https://github.com/nikhil476)
+
+---
+
+Built as a full-stack development project to explore frontend development, backend architecture, database integration, authentication, and deployment.
