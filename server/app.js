@@ -12,7 +12,7 @@ app.use(cors({
     origin:[
         "http://localhost:5173",
         "https://fin-track-abc-f83d.vercel.app",
-        "https://fin-track-8jwn5tv3d-abc-f83d.vercel.app"
+        /^https:\/\/fin-track-[a-z0-9]+-abc-f83d\.vercel\.app$/
     ],
     credentials: true
 })); 
