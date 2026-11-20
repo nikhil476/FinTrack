@@ -49,7 +49,7 @@ function Register() {
         }
 
         try {
-            const response = await fetch("http://localhost:3000/api/auth/register", {
+            const response = await fetch("https://fintrack-api-da0c.onrender.com/api/auth/register", {
                 method: "POST",
                 credentials: "include",
                 headers: {

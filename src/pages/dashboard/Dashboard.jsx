@@ -49,7 +49,7 @@ function Dashboard() {
         setExpensesError("");
         
         try {
-            const response = await fetch("http://localhost:3000/api/expenses", {
+            const response = await fetch("https://fintrack-api-da0c.onrender.com/api/expenses", {
                 credentials: "include"
             });
 
@@ -84,7 +84,7 @@ function Dashboard() {
     }, []);
 
     useEffect(() => {
-        fetch("http://localhost:3000/api/auth/me", {
+        fetch("https://fintrack-api-da0c.onrender.com/api/auth/me", {
             credentials: "include"
         })
             .then(response => {
@@ -114,7 +114,7 @@ function Dashboard() {
     }
 
     async function handleLogout() {
-        await fetch("http://localhost:3000/api/auth/logout", {
+        await fetch("https://fintrack-api-da0c.onrender.com/api/auth/logout", {
             method: "POST",
             credentials: "include"
         });
@@ -125,7 +125,7 @@ function Dashboard() {
     const handleDelete = async (id) => {
         try {
             const response = await fetch(
-                `http://localhost:3000/api/expenses/${id}`, {
+                `https://fintrack-api-da0c.onrender.com/api/expenses/${id}`, {
                 method: "DELETE",
                 credentials: "include"
             }
@@ -152,7 +152,7 @@ function Dashboard() {
 
         try {
             const response = await fetch(
-                `http://localhost:3000/api/expenses/${id}`, {
+                `https://fintrack-api-da0c.onrender.com/api/expenses/${id}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json"
@@ -226,7 +226,7 @@ function Dashboard() {
         }
 
         try {
-            const response = await fetch("http://localhost:3000/api/expenses", {
+            const response = await fetch("https://fintrack-api-da0c.onrender.com/api/expenses", {
                 method: "POST",
                 headers: {
                     "Content-type": "application/json"
