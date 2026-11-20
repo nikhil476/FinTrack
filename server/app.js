@@ -9,7 +9,10 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin:[
+        "http://localhost:5173",
+        "https://fin-track-abc-f83d.vercel.app"
+    ],
     credentials: true
 })); 
 app.use("/api/auth", authRoutes);
