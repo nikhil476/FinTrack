@@ -11,7 +11,8 @@ app.use(cookieParser());
 app.use(cors({
     origin:[
         "http://localhost:5173",
-        "https://fin-track-abc-f83d.vercel.app"
+        "https://fin-track-abc-f83d.vercel.app",
+        "https://fin-track-8jwn5tv3d-abc-f83d.vercel.app"
     ],
     credentials: true
 })); 
