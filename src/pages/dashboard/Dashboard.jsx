@@ -41,13 +41,14 @@ function Dashboard() {
     const [editData, setEditData] = useState({});
     const [expensesLoading, setExpensesLoading] = useState(true);
     const [expensesError, setExpensesError] = useState("");
+    const [menuOpen, setMenuOpen] = useState(false);
 
     const navigate = useNavigate();
 
     async function fetchExpenses() {
         setExpensesLoading(true);
         setExpensesError("");
-        
+
         try {
             const response = await fetch("https://fintrack-api-da0c.onrender.com/api/expenses", {
                 credentials: "include"
@@ -360,17 +361,41 @@ function Dashboard() {
     return (
         <div className="dashboard">
             <aside className="sidebar">
+
+                <button
+                    className="mobile-menu-btn"
+                    onClick={() => setMenuOpen(!menuOpen)}
+                >
+                    ☰
+                </button>
+
                 <h2>FinTrack</h2>
 
-                <nav>
-                    <button onClick={() => setActivePage("dashboard")}>Dashboard</button>
-                    <button onClick={() => setActivePage("transactions")}>Transactions</button>
-                    <button onClick={() => setActivePage("analytics")}>Analytics</button>
+                <nav className={menuOpen ? "open" : ""}>
+                    <button onClick={() => {
+                        setActivePage("dashboard");
+                        setMenuOpen(false);
+                    }}>
+                        Dashboard
+                    </button>
+
+                    <button onClick={() => {
+                        setActivePage("transactions");
+                        setMenuOpen(false);
+                    }}>
+                        Transactions
+                    </button>
+
+                    <button onClick={() => {
+                        setActivePage("analytics");
+                        setMenuOpen(false);
+                    }}>
+                        Analytics
+                    </button>
                 </nav>
 
-
-
                 <button onClick={handleLogout}>Logout</button>
+
             </aside>
 
             <main className="main-content">
