@@ -371,6 +371,13 @@ function Dashboard() {
 
                 <h2>FinTrack</h2>
 
+                {menuOpen && (
+                    <div
+                        className="mobile-menu-overlay"
+                        onClick={() => setMenuOpen(false)}
+                    />
+                )}
+
                 <nav className={menuOpen ? "open" : ""}>
                     <button onClick={() => {
                         setActivePage("dashboard");

@@ -9,7 +9,7 @@
     margin-bottom: 6px;
 }
 
-.analytics-page > p {
+.analytics-page>p {
     color: #64748b;
     margin-bottom: 20px;
 }
@@ -211,4 +211,113 @@
         gap: 12px;
     }
 
+}
+
+/* Mobile Analytics Layout */
+@media (max-width: 768px) {
+
+    .analytics-page {
+        text-align: center;
+        padding-bottom: 15px;
+    }
+
+    .analytics-page h1 {
+        font-size: 23px;
+    }
+
+    .analytics-page>p {
+        font-size: 12px;
+        margin-bottom: 15px;
+    }
+
+    /* Analytics Cards */
+    .analytics-card,
+    .monthly-chart {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 14px;
+        margin-top: 14px;
+        border-radius: 12px;
+        text-align: center;
+    }
+
+    .analytics-card h2 {
+        font-size: 23px;
+    }
+
+    .analytics-card h3,
+    .monthly-chart h3 {
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .monthly-chart p {
+        font-size: 12px;
+        margin-bottom: 15px;
+    }
+
+    /* Chart Dimensions */
+    .analytics-card .recharts-responsive-container,
+    .monthly-chart .recharts-responsive-container {
+        height: 220px !important;
+        margin: 0 auto;
+    }
+
+    /* Insights */
+    .insights-header {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .insights-header select {
+        font-size: 12px;
+        padding: 8px 12px;
+    }
+
+    .insights-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .insight-item {
+        padding: 12px;
+        text-align: center;
+    }
+
+    .insight-item span {
+        font-size: 11px;
+    }
+
+    .insight-item h3 {
+        font-size: 16px;
+        margin-top: 7px;
+    }
+
+    .insight-item small {
+        font-size: 10px;
+    }
+
+    /* Legend */
+    .custom-legend {
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .custom-legend li {
+        font-size: 11px;
+    }
+
+    /* Spending Patterns */
+    .patterns-list {
+        gap: 10px;
+    }
+
+    .patterns-list p {
+        font-size: 12px;
+        padding: 12px;
+        line-height: 1.5;
+        text-align: center;
+    }
 }
