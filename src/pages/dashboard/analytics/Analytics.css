@@ -16,6 +16,9 @@
 
 
 /* Chart Cards */
+.recharts-surface {
+    border: none;
+}
 
 .analytics-card,
 .monthly-chart {

@@ -2,12 +2,19 @@ import bcrypt from "bcrypt";
 import db from "../db/db.js";
 import jwt from "jsonwebtoken";
 
+const cookieOptions = {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+    sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+    path: "/"
+};
+
 export async function registerUser(req, res) {
     const { name, email, password } = req.body;
 
     try {
 
-        if (!name || !email || !password){
+        if (!name || !email || !password) {
             return res.status(400).json({
                 message: "Name, email, and password are required."
             });
@@ -25,14 +32,12 @@ export async function registerUser(req, res) {
         const token = jwt.sign(
             { id: user.id },
             process.env.JWT_SECRET,
-            { expiresIn: "1h" }
+            { expiresIn: "24" }
         );
 
         res.cookie("token", token, {
-            httpOnly: true,
-            secure: process.env.NODE_ENV === "production",
-            sameSite: "lax",
-            maxAge: 60 * 60 * 1000 * 24
+            ...cookieOptions,
+            maxAge: 24 * 60 * 60 * 1000
         });
 
         res.status(201).json({
@@ -98,17 +103,15 @@ export async function loginUser(req, res) {
         )
 
         res.cookie("token", token, {
-            httpOnly: true,
-            secure: process.env.NODE_ENV === "production",
-            sameSite: "none",
-            maxAge: 60 * 60 * 1000 * 24
+            ...cookieOptions,
+            maxAge: 24 * 60 * 60 * 1000
         });
 
         return res.status(200).json({
             message: "Login successful",
             user: {
                 id: user.id,
-                name: user.name, 
+                name: user.name,
                 email: user.email
             }
         });
@@ -122,15 +125,11 @@ export async function loginUser(req, res) {
     }
 }
 
-export function logoutUser (req, res) {
+export function logoutUser(req, res) {
 
-    res.clearCookie("token", {
-        httpOnly: true,
-        secure: process.env.NODE_ENV === "production",
-        sameSite: "lax"
-    })
+    res.clearCookie("token", cookieOptions);
 
     return res.status(200).json({
         message: "Logout Successful."
-    });   
+    });
 }
