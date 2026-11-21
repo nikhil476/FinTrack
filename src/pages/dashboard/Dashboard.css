@@ -593,13 +593,13 @@
     }
 
     .dashboard-header p {
-        font-size: 14px;
-        width: 240px;
+        font-size: 13px;
+        width: 170px;
     }
 
     .add-expense-btn {
         padding: 9px 14px;
-        font-size: 14px;
+        font-size: 13px;
     }
 
     /* Section Headings */
@@ -621,7 +621,7 @@
     }
 
     .summary-cards h2 {
-        font-size: 14px;
+        font-size: 9px;
         margin-bottom: 10px;
     }
 
@@ -642,8 +642,8 @@
     }
 
     .chart-card .recharts-responsive-container {
-        width: 100% !important;
-        height: 230px !important;
+        width: 93% !important;
+        height: 250px !important;
         min-width: 0;
     }
 
