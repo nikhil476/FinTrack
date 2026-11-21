@@ -425,7 +425,6 @@ function Dashboard() {
                         </header>
 
                         <section>
-                            <h2>Welcome back 👋</h2>
 
                             <div className="summary-cards">
                                 <div className="spent-card">
@@ -438,8 +437,8 @@ function Dashboard() {
                                     <p>₹{monthlySpent.toLocaleString("en-IN")}</p>
                                 </div>
 
-                                <div className="transaction-card">
-                                    <h2>Monthly Transactions</h2>
+                                <div className="summary-transaction-card">
+                                    <h2>Transactions/Mth</h2>
                                     <p>{transactionCount}</p>
                                 </div>
                             </div>
@@ -448,42 +447,47 @@ function Dashboard() {
                                 <div className="chart-card">
                                     <h2>Spending Trends</h2>
 
-                                    <ResponsiveContainer width="100%" height={300}>
-                                        <LineChart data={spendingData}>
-                                            <CartesianGrid strokeDasharray="3 3" />
-                                            <XAxis dataKey="month" />
-                                            <YAxis />
-                                            <Tooltip />
-                                            <Line
-                                                type="monotone"
-                                                dataKey="amount"
-                                                stroke="#16a34a"
-                                                strokeWidth={3}
-                                            />
-                                        </LineChart>
-                                    </ResponsiveContainer>
+                                    <div className="dashboard-chart-container">
+                                        <ResponsiveContainer width="100%" height="100%">
+                                            <LineChart data={spendingData}>
+                                                <CartesianGrid strokeDasharray="3 3" />
+                                                <XAxis dataKey="month" />
+                                                <YAxis />
+                                                <Tooltip />
+                                                <Line
+                                                    type="monotone"
+                                                    dataKey="amount"
+                                                    stroke="#16a34a"
+                                                    strokeWidth={3}
+                                                />
+                                            </LineChart>
+                                        </ResponsiveContainer>
+                                    </div>
                                 </div>
 
                                 <div className="chart-card">
                                     <h2>Category Breakdown</h2>
+                                    
+                                    <div className="dashboard-chart-container">
+                                        <ResponsiveContainer width="100%" height="100%">
+                                            <PieChart>
+                                                <Pie
+                                                    data={categoryData}
+                                                    dataKey="amount"
+                                                    nameKey="category"
+                                                    innerRadius={45}
+                                                    outerRadius={60}
+                                                    shape={(props) => <CustomShape {...props} />}
+                                                    label={({ percent }) => `${(percent * 100).toFixed(0)}%`}
+                                                    labelLine={false}
+                                                >
+                                                </Pie>
+                                                <Tooltip />
+                                                <Legend content={renderLegend} />
+                                            </PieChart>
+                                        </ResponsiveContainer>
+                                    </div>
 
-                                    <ResponsiveContainer width="100%" height={300}>
-                                        <PieChart>
-                                            <Pie
-                                                data={categoryData}
-                                                dataKey="amount"
-                                                nameKey="category"
-                                                innerRadius={70}
-                                                outerRadius={100}
-                                                shape={(props) => <CustomShape {...props} />}
-                                                label={({ percent }) => `${(percent * 100).toFixed(0)}%`}
-                                                labelLine={false}
-                                            >
-                                            </Pie>
-                                            <Tooltip />
-                                            <Legend content={renderLegend} />
-                                        </PieChart>
-                                    </ResponsiveContainer>
                                 </div>
                             </div>
 

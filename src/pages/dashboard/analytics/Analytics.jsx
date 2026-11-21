@@ -385,29 +385,31 @@ function Analytics({ transactions }) {
                         <h3>Spending Overview</h3>
                         <p>last 3 months</p>
 
-                        <ResponsiveContainer width="100%" height={300}>
-                            <LineChart data={monthlyData}>
-                                <CartesianGrid
-                                    stroke="#e2e8f0"
-                                    vertical={false}
-                                />
+                        <div className="analytics-chart-container">
+                            <ResponsiveContainer width="100%" height="100%">
+                                <LineChart data={monthlyData}>
+                                    <CartesianGrid
+                                        stroke="#e2e8f0"
+                                        vertical={false}
+                                    />
 
-                                <XAxis dataKey="month" />
+                                    <XAxis dataKey="month" />
 
-                                <YAxis />
+                                    <YAxis />
 
-                                <Tooltip />
+                                    <Tooltip />
 
-                                <Line
-                                    type="monotone"
-                                    dataKey="total"
-                                    stroke="#6366f1"
-                                    strokeWidth={3}
-                                    dot={{ r: 4, fill: "#6366f1" }}
-                                    activeDot={{ r: 7 }}
-                                />
-                            </LineChart>
-                        </ResponsiveContainer>
+                                    <Line
+                                        type="monotone"
+                                        dataKey="total"
+                                        stroke="#6366f1"
+                                        strokeWidth={3}
+                                        dot={{ r: 4, fill: "#6366f1" }}
+                                        activeDot={{ r: 7 }}
+                                    />
+                                </LineChart>
+                            </ResponsiveContainer>
+                        </div>
                     </div>
 
                     {/* Category Spending Over Time */}
@@ -415,37 +417,39 @@ function Analytics({ transactions }) {
                         <h3>Category Spending Over Time</h3>
                         <p>last 3 months</p>
 
-                        <ResponsiveContainer width="100%" height={300}>
-                            <LineChart data={categoryTrendData}>
-                                <CartesianGrid
-                                    stroke="#e2e8f0"
-                                    vertical={false}
-                                />
-
-                                <XAxis dataKey="month" />
-
-                                <YAxis />
-
-                                <Tooltip />
-
-                                <Legend />
-
-                                {categories.map((category, index) => (
-                                    <Line
-                                        key={category}
-                                        type="monotone"
-                                        dataKey={category}
-                                        stroke={
-                                            categoryColors[
-                                            index % categoryColors.length
-                                            ]
-                                        }
-                                        strokeWidth={2}
-                                        dot={{ r: 4 }}
+                        <div className="analytics-chart-container">
+                            <ResponsiveContainer width="100%" height="100%">
+                                <LineChart data={categoryTrendData}>
+                                    <CartesianGrid
+                                        stroke="#e2e8f0"
+                                        vertical={false}
                                     />
-                                ))}
-                            </LineChart>
-                        </ResponsiveContainer>
+
+                                    <XAxis dataKey="month" />
+
+                                    <YAxis />
+
+                                    <Tooltip />
+
+                                    <Legend />
+
+                                    {categories.map((category, index) => (
+                                        <Line
+                                            key={category}
+                                            type="monotone"
+                                            dataKey={category}
+                                            stroke={
+                                                categoryColors[
+                                                index % categoryColors.length
+                                                ]
+                                            }
+                                            strokeWidth={2}
+                                            dot={{ r: 4 }}
+                                        />
+                                    ))}
+                                </LineChart>
+                            </ResponsiveContainer>
+                        </div>
                     </div>
 
 
